@@ -1,41 +1,54 @@
+const bird_img = new Image();
+bird_img.src = "sprite/birdSprite.png";
+
+const b_width = 18;
+const b_height = 13;
+const b_gravity = 0.2;
+const b_scale = 3;
+
 class Bird {
-    constructor(ctx, x, y) {
+    constructor(x, y) {
         this.x = x;
         this.y = y;
-        this.velY = 3;
-        this.ctx = ctx;
-        this.width = 50;
-        this.height = 40;
-        this.bird_img = new Image();
-        this.bird_img.src = "sprite/bird.png";
-        this.gravity = 1.5;
+        this.velY = 1;
+
 
     }
-    draw() {
-        this.ctx.drawImage(this.bird_img, this.x, this.y, this.width, this.height);
+    draw(i) {
+        drawFrame(i, 0, this.x, this.y);
+
+
     }
     update() {
         this.y += this.velY;
 
-        if (this.y >= canv_height - this.height) {
+        if (this.y >= canv_height - b_height * b_scale) {
             this.velY = 0;
-            this.y = canv_height - this.height;
+            this.y = canv_height - b_height * b_scale;
         } else {
-            this.velY += this.gravity;
+            this.velY += b_gravity;
         }
     }
 
 }
 
-let bird = new Bird(ctx, 100, 200);
+let bird = new Bird(100, 200);
+
+function drawFrame(frameX, frameY, canvasX, canvasY) {
+    ctx.drawImage(bird_img,
+        frameX * b_width, frameY * b_height, b_width, b_height,
+        canvasX, canvasY, b_width * b_scale, b_height * b_scale);
+}
+
+
 document.onkeydown = function userInput() {
 
     switch (event.keyCode) {
         case 32:
-            bird.velY *= -0.3;
+            bird.velY *= -0.2;
 
             bird.velY *= 1.2;
-            bird.velY -= 8;
+            bird.velY -= 4;
             break;
         default:
             break;
