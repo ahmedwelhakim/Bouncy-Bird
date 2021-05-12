@@ -18,7 +18,10 @@ class Pipe {
         drawPipeDown(0, 0, this.x, this.y + pipe_height * pipe_scaleY + pipe_gap);
     }
     update() {
-        this.x -= dx;
+        if (currentState == gameStates[1]) {
+            this.x -= dx;
+        }
+
     }
     getTopAccY() //highest point before collision in up pipe
         {
@@ -42,19 +45,25 @@ function drawPipeDown(frameX, frameY, canvasX, canvasY) {
         frameX, frameY, pipe_width, pipe_height,
         canvasX, canvasY, pipe_width * pipe_scaleX, pipe_height * pipe_scaleY);
 }
+const pipe_distance = 250;
 let rand = Math.random() * -300 - 100;
-let pipes = [new Pipe(c.width, rand)];
+let pipes = [new Pipe(c.width - pipe_distance * 2, rand)];
+rand = Math.random() * -300 - 100;
+pipes.push(new Pipe(c.width - pipe_distance, rand));
+
 
 function pipeGenerator(frame_count) {
     let rand = Math.random() * -300 - 100;
-    if (frame_count % 380 == 0) {
-        pipes.push(new Pipe(c.width, rand));
-    }
-    pipes.forEach(p => {
-        p.draw()
-        p.update();
-    });
-    if (pipes[0].x < -pipe_width * pipe_scaleX) {
-        pipes.shift();
+    if (currentState == gameStates[1]) {
+        if (c.width - pipes[pipes.length - 1].x > pipe_distance) {
+            pipes.push(new Pipe(c.width, rand));
+        }
+        pipes.forEach(p => {
+            p.update();
+        });
+        //remove the pipe when it goes out of screen
+        if (pipes[0].x < -pipe_width * pipe_scaleX) {
+            pipes.shift();
+        }
     }
 }

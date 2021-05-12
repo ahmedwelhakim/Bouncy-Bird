@@ -11,19 +11,21 @@ class Bird {
         this.x = x;
         this.y = y;
         this.velY = 1;
-
     }
     draw(i) {
         drawBird(i, 0, this.x, this.y);
     }
     update() {
-        this.y += this.velY;
-
-        if (this.y >= canv_height - b_height * b_scale) {
-            this.velY = 0;
-            this.y = canv_height - b_height * b_scale;
+        if (currentState == gameStates[1] || currentState == gameStates[2]) {
+            gravityOn();
         } else {
-            this.velY += b_gravity;
+            gravityOff()
+        }
+        if (currentState == gameStates[2]) {
+            if (this.y + b_height * b_scale < canv_height) {
+                this.x += 0.7;
+            }
+
         }
     }
 }
@@ -40,10 +42,35 @@ document.onkeydown = function userInput() {
 
     switch (event.keyCode) {
         case 32:
-            bird.velY *= -0.2;
-            bird.velY -= 3;
+            if (currentState == gameStates[0]) {
+                currentState = gameStates[1];
+            }
+            if (currentState == gameStates[1]) {
+                birdFlap();
+            }
+
             break;
         default:
             break;
     }
+}
+
+function birdFlap() {
+    bird.velY *= -0.2;
+    bird.velY -= 3;
+}
+
+function gravityOn() {
+    bird.y += bird.velY;
+
+    if (bird.y >= canv_height - b_height * b_scale) {
+        bird.velY = 0;
+        bird.y = canv_height - b_height * b_scale;
+    } else {
+        bird.velY += b_gravity;
+    }
+}
+
+function gravityOff() {
+    bird.velY = 0;
 }
