@@ -64,6 +64,10 @@ function pipeGenerator(frame_count) {
         //remove the pipe when it goes out of screen
         if (pipes[0].x < -pipe_width * pipe_scaleX) {
             pipes.shift();
+
+            score.value += 1;
+            score.best = Math.max(score.value, score.best);
+            localStorage.setItem("best", score.best);
         }
     }
 }

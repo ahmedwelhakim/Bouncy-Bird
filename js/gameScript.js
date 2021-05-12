@@ -26,6 +26,8 @@ function loop() {
         p.draw();
     });
     bird.draw(i);
+    score.draw();
+
     bird.update();
     pipeGenerator(frame_count);
 
