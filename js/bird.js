@@ -16,12 +16,12 @@ class Bird {
         drawBird(i, 0, this.x, this.y);
     }
     update() {
-        if (currentState == gameStates[1] || currentState == gameStates[2]) {
+        if (state.current == state.play || state.current == state.over) {
             gravityOn();
         } else {
             gravityOff()
         }
-        if (currentState == gameStates[2]) {
+        if (state.current == state.over) {
             if (this.y + b_height * b_scale < canv_height) {
                 this.x += 0.7;
             }
@@ -32,28 +32,17 @@ class Bird {
 
 let bird = new Bird(100, 200);
 
+function init_bird() {
+    bird = new Bird(100, 200);
+}
+
 function drawBird(frameX, frameY, canvasX, canvasY) {
     ctx.drawImage(bird_img,
         frameX * b_width, frameY * b_height, b_width, b_height,
         canvasX, canvasY, b_width * b_scale, b_height * b_scale);
 }
 
-document.onkeydown = function userInput() {
 
-    switch (event.keyCode) {
-        case 32:
-            if (currentState == gameStates[0]) {
-                currentState = gameStates[1];
-            }
-            if (currentState == gameStates[1]) {
-                birdFlap();
-            }
-
-            break;
-        default:
-            break;
-    }
-}
 
 function birdFlap() {
     bird.velY *= -0.2;

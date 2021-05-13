@@ -18,7 +18,7 @@ class Pipe {
         drawPipeDown(0, 0, this.x, this.y + pipe_height * pipe_scaleY + pipe_gap);
     }
     update() {
-        if (currentState == gameStates[1]) {
+        if (state.current == state.play) {
             this.x -= dx;
         }
 
@@ -46,15 +46,20 @@ function drawPipeDown(frameX, frameY, canvasX, canvasY) {
         canvasX, canvasY, pipe_width * pipe_scaleX, pipe_height * pipe_scaleY);
 }
 const pipe_distance = 250;
-let rand = Math.random() * -300 - 100;
-let pipes = [new Pipe(c.width - pipe_distance * 2, rand)];
-rand = Math.random() * -300 - 100;
-pipes.push(new Pipe(c.width - pipe_distance, rand));
+
+let pipes = [];
+
+function init_PipesList() {
+    let rand = Math.random() * -300 - 100;
+    pipes = [new Pipe(c.width - pipe_distance * 2, rand)];
+    rand = Math.random() * -300 - 100;
+    pipes.push(new Pipe(c.width - pipe_distance, rand));
+}
 
 
 function pipeGenerator(frame_count) {
     let rand = Math.random() * -300 - 100;
-    if (currentState == gameStates[1]) {
+    if (state.current == state.play) {
         if (c.width - pipes[pipes.length - 1].x > pipe_distance) {
             pipes.push(new Pipe(c.width, rand));
         }
@@ -70,4 +75,10 @@ function pipeGenerator(frame_count) {
             localStorage.setItem("best", score.best);
         }
     }
+}
+
+function drawPipes() {
+    pipes.forEach(p => {
+        p.draw();
+    });
 }

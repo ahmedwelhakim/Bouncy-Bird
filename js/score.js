@@ -4,12 +4,12 @@ const score = {
     draw: function() {
         ctx.fillStyle = "#FFF";
         ctx.strokeStyle = "#000";
-        if (currentState == gameStates[1]) {
+        if (state.current == state.play) {
             ctx.lineWidth = 2;
             ctx.font = "40px Teko";
             ctx.fillText(this.value, c.width / 2, 50);
             ctx.strokeText(this.value, c.width / 2, 50);
-        } else if (currentState == gameStates[2]) {
+        } else if (state.current == state.over) {
             // SCORE VALUE
             ctx.font = "40px Teko";
             ctx.fillText("Score: " + this.value, 20, 50);
