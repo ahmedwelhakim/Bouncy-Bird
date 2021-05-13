@@ -54,4 +54,6 @@ function reset() {
     init_bird()
         //set game state
     state.current = state.ready;
+
+    score.reset();
 }
