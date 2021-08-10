@@ -7,3 +7,14 @@ function isCollide(bird, pipe) {
         return false;
     }
 }
+
+function iscoinCollision(bird, coin) {
+
+    if ((bird.x <= coin.x + coin_width) && (bird.x + b_width * b_scale >= coin.x)) {
+        if ((bird.y <= coin.y + coin_height) && (bird.y + b_height >= coin.y)) {
+            return true;
+        }
+    } else {
+        return false;
+    }
+}

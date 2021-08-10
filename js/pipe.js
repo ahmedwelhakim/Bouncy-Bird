@@ -6,7 +6,7 @@ const pipe_width = 29;
 const pipe_height = 155;
 const pipe_scaleX = 3;
 const pipe_scaleY = 2.9;
-const dx = 0.7;
+const dx = 1;
 const pipe_gap = 180;
 class Pipe {
     constructor(x, y) {
@@ -70,7 +70,7 @@ function pipeGenerator(frame_count) {
         if (pipes[0].x < -pipe_width * pipe_scaleX) {
             pipes.shift();
 
-            score.value += 1;
+
             score.best = Math.max(score.value, score.best);
             localStorage.setItem("best", score.best);
         }

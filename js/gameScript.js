@@ -20,12 +20,25 @@ function loop() {
     ctx.fillRect(0, 0, c.width, c.height);
     //Draw pipes and bird and score
     drawPipes();
+    drawCoins();
     bird.draw(i);
+
     score.draw();
 
     //2- Update
     bird.update();
     pipeGenerator(frame_count);
+
+    coinGenertator();
+    updateCoins();
+
+    for (let c = 0; c < coins.length; c++) {
+        if (iscoinCollision(bird, coins[c])) {
+            coins.splice(c, 1);
+            score.value++;
+        }
+    }
+
 
     if (isCollide(bird, pipes)) {
         state.current = state.over;
@@ -51,8 +64,10 @@ function reset() {
     pipes.length = 0;
     init_PipesList();
     //clear the bird 
-    init_bird()
-        //set game state
+    init_bird();
+    init_coins();
+    init_coin();
+    //set game state
     state.current = state.ready;
 
     score.reset();
