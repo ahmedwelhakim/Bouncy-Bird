@@ -32,10 +32,12 @@ function loop() {
     coinGenertator();
     updateCoins();
 
-    for (let c = 0; c < coins.length; c++) {
-        if (iscoinCollision(bird, coins[c])) {
-            coins.splice(c, 1);
-            score.value++;
+    if (state.current == state.play) {
+        for (let c = 0; c < coins.length; c++) {
+            if (iscoinCollision(bird, coins[c])) {
+                coins.splice(c, 1);
+                score.value++;
+            }
         }
     }
 
