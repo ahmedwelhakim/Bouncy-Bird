@@ -46,7 +46,7 @@ function drawBird(frameX, frameY, canvasX, canvasY) {
 
 function birdFlap() {
     bird.velY *= -0.2;
-    bird.velY -= 3;
+    bird.velY -= 3.6;
 }
 
 function gravityOn() {

@@ -2,7 +2,7 @@ const radX = 8;
 const radY = 15;
 const coin_width = radX * 2;
 const coin_height = radY * 2;
-const coin_topDistance = 40;
+const coin_topDistance = 90;
 const coin_no = 2;
 
 class Coin {
@@ -43,7 +43,7 @@ function coinGenertator() {
         if (pipes[pipes.length - 1].x == c.width - dx) {
             for (let g = 0; g < coin_no * coin_gap; g += coin_gap) {
                 coins.push(new Coin(pipes[pipes.length - 1].x + g - (pipe_distance / 2) + (pipe_width * pipe_scaleX) / 2,
-                    pipes[pipes.length - 1].getTopAccY() - Math.sin((Math.PI / pipe_distance) * (g / coin_gap) * (180 / Math.PI)) * coin_topDistance + pipe_gap / 2));
+                    pipes[pipes.length - 1].getTopAccY() - Math.sin((Math.PI / pipe_distance) * (g / coin_gap) * (180 / Math.PI)) * coin_topDistance + pipe_gap * 1.1));
             }
         }
 
