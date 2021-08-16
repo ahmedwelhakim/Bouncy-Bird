@@ -3,7 +3,7 @@ bird_img.src = "sprite/birdSprite.png";
 
 const b_width = 18;
 const b_height = 13;
-const b_gravity = 0.1;
+const b_gravity = 0.12;
 const b_scale = 3;
 
 class Bird {
@@ -45,8 +45,8 @@ function drawBird(frameX, frameY, canvasX, canvasY) {
 
 
 function birdFlap() {
-    bird.velY *= -0.2;
-    bird.velY -= 3.6;
+    bird.velY *= -0.3;
+    bird.velY -= 3.5;
 }
 
 function gravityOn() {
