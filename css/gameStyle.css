@@ -1,0 +1,31 @@
+body {
+    min-width: 1000px;
+    background: radial-gradient(ellipse, #0793f1, transparent), radial-gradient(ellipse, #e43d1f, transparent);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav {
+    background-color: rgb(27, 26, 26);
+    border-radius: 5em;
+    margin: auto;
+    height: 3em;
+}
+
+.container {
+    color: beige;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: auto;
+}
+
+#canv-container {
+    margin: auto;
+    width: fit-content;
+}
+
+canvas {
+    border-radius: 3em;
+    margin: auto;
+}
