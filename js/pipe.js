@@ -6,6 +6,8 @@ const pipe_width = 29;
 const pipe_height = 155;
 const pipe_scaleX = 3;
 const pipe_scaleY = 2.9;
+const pipe_scaledWidth = pipe_width * pipe_scaleX
+const pipe_scaledHeight = pipe_height * pipe_scaleY
 const dx = 1;
 const pipe_gap = 180;
 class Pipe {
@@ -15,7 +17,7 @@ class Pipe {
     }
     draw() {
         drawPipeUp(0, 0, this.x, this.y);
-        drawPipeDown(0, 0, this.x, this.y + pipe_height * pipe_scaleY + pipe_gap);
+        drawPipeDown(0, 0, this.x, this.y + pipe_scaledHeight + pipe_gap);
     }
     update() {
         if (state.current == state.play) {
@@ -49,11 +51,16 @@ const pipe_distance = 250;
 
 let pipes = [];
 
-function init_PipesList() {
+
+function drawReadyStatePipes() {
     let rand = Math.random() * -300 - 100;
-    pipes = [new Pipe(c.width - pipe_distance * 2, rand)];
-    rand = Math.random() * -300 - 100;
-    pipes.push(new Pipe(c.width - pipe_distance, rand));
+    const pipe_widthPlusGap  = (pipe_scaledWidth + pipe_gap)
+    let pipes_no = c.width/pipe_widthPlusGap
+    for (let x =bird.x + pipe_widthPlusGap; x < (pipes_no)*pipe_widthPlusGap ; x+=pipe_widthPlusGap) {
+       pipes.push(new Pipe(x,rand))
+        
+    }
+
 }
 
 

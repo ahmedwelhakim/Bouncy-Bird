@@ -7,18 +7,30 @@ body {
 
 nav {
     background-color: rgb(27, 26, 26);
-    border-radius: 5em;
-    margin: auto;
+    border-radius: 1em;
     height: 3em;
+    padding: 0.5em;
 }
 
 .container {
     color: beige;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 3em;
     width: 80%;
     margin: auto;
+    align-content: center;
 }
+.title{
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-bottom: 500em;
+
+}
+.logo{
+    vertical-align: middle;
+}
+
 
 #canv-container {
     margin: auto;
@@ -28,6 +40,6 @@ nav {
 
 canvas {
 
-    border-radius: 3em;
+    border-radius: 2em;
     margin: auto;
 }

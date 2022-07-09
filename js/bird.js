@@ -22,7 +22,7 @@ class Bird {
             gravityOff()
         }
         if (state.current == state.over) {
-            if (this.y + b_height * b_scale < canv_height) {
+            if (this.y + b_height * b_scale < c.height) {
                 this.x += 0.7;
             }
 
@@ -30,10 +30,12 @@ class Bird {
     }
 }
 
-let bird = new Bird(100, 200);
 
-function init_bird() {
-    bird = new Bird(100, 200);
+
+function reset_bird() {
+    x = c.width * 0.2;
+    y = c.height * 0.5 - b_height;
+    bird = new Bird(x, y);
 }
 
 function drawBird(frameX, frameY, canvasX, canvasY) {
@@ -52,9 +54,9 @@ function birdFlap() {
 function gravityOn() {
     bird.y += bird.velY;
 
-    if (bird.y >= canv_height - b_height * b_scale) {
+    if (bird.y >= c.height - b_height * b_scale) {
         bird.velY = 0;
-        bird.y = canv_height - b_height * b_scale;
+        bird.y = c.height - b_height * b_scale;
     } else {
         bird.velY += b_gravity;
     }

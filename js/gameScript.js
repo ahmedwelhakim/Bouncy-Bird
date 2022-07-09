@@ -10,7 +10,12 @@ window.requestAnimationFrame(loop);
 let frame_count = 0; //frames counter
 let i = 0; //bird animation index
 
-init_PipesList();
+
+
+reset_bird()
+drawReadyStatePipes();
+drawReadyStateCoins();
+
 //The Game Loop
 function loop() {
     //1- Draw
@@ -64,11 +69,13 @@ function loop() {
 function reset() {
     //CLear the pipe array
     pipes.length = 0;
-    init_PipesList();
+
     //clear the bird 
-    init_bird();
-    init_coins();
-    init_coin();
+    reset_bird();
+    reset_coins();
+    reset_coin();
+    drawReadyStatePipes();
+    drawReadyStateCoins();
     //set game state
     state.current = state.ready;
 
