@@ -1,5 +1,5 @@
 body {
-    min-width: 1000px;
+    /*min-width: 1000px;*/
     background: radial-gradient(ellipse, #0793f1, transparent), radial-gradient(ellipse, #e43d1f, transparent);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -22,10 +22,12 @@ nav {
 
 #canv-container {
     margin: auto;
+    margin-top: 20px;
     width: fit-content;
 }
 
 canvas {
+
     border-radius: 3em;
     margin: auto;
 }

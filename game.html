@@ -33,14 +33,16 @@
     </div>
 
     <script>
-        const canv_width = 1000;
-        const canv_height = 600;
+        
+        const canv_width = screen.width * 0.7;
+        const canv_height = screen.height * 0.7;
 
         let c = document.getElementById("myCanvas");
         var ctx = c.getContext("2d");
         ctx.canvas.width = canv_width;
         ctx.canvas.height = canv_height;
     </script>
+    
     <script src="js/key.js"></script>
     <script src="js/score.js"></script>
     <script src="js/bird.js"></script>
