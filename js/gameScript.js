@@ -46,9 +46,10 @@ function loop() {
         }
     }
 
-
-    if (isCollide(bird, pipes)) {
-        state.current = state.over;
+    if (pipes.length > 0) {
+        if (isCollide(bird, pipes)) {
+            state.current = state.over;
+        }
     }
 
     //3- increment the frame counter

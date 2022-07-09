@@ -55,7 +55,7 @@ function coinGenertator() {
     var coin_gap = pipe_distance / coin_no;
     if (state.current == state.play) {
 
-        if (pipes[pipes.length - 1].x == c.width - dx) {
+        if (pipes.length>0 && pipes[pipes.length - 1].x == c.width - dx) {
             for (let g = 0; g < coin_no * coin_gap; g += coin_gap) {
                 var x = pipes[pipes.length - 1].x + g - (pipe_distance / 2) + (pipe_scaledWidth) / 2;
                 var y =pipes[pipes.length - 1].getTopAccY() - Math.sin((Math.PI / pipe_distance) * (g / coin_gap) * (180 / Math.PI)) * coin_topDistance + pipe_gap * 1.1;

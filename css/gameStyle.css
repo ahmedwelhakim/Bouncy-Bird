@@ -22,7 +22,8 @@ nav {
     align-content: center;
 }
 .title{
-    font-size: 1.5em;
+    font-weight: bold;
+    font-size: large;
     vertical-align: middle;
     margin-bottom: 500em;
 

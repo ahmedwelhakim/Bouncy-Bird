@@ -67,7 +67,10 @@ function drawReadyStatePipes() {
 function pipeGenerator(frame_count) {
     let rand = Math.random() * -300 - 100;
     if (state.current == state.play) {
-        if (c.width - pipes[pipes.length - 1].x > pipe_distance) {
+        if(pipes.length == 0){
+            pipes.push(new Pipe(c.width, rand));
+        }
+        else if (c.width - pipes[pipes.length - 1].x > pipe_distance) {
             pipes.push(new Pipe(c.width, rand));
         }
         pipes.forEach(p => {

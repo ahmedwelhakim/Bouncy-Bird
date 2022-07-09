@@ -31,7 +31,10 @@
 
     <script>
 
-        const canv_width = screen.width * 0.7;
+        let canv_width = screen.width * 0.9;
+        if(canv_width>1000){
+            canv_width = 1000
+        }
         const canv_height = screen.height * 0.7;
 
         let c = document.getElementById("myCanvas");
