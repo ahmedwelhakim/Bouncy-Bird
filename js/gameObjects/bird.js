@@ -76,7 +76,7 @@ class Bird extends GameObject {
         }
     }
     flap() {
-        this.#dy = -800/FPS;
+        this.#dy = -740/FPS;
     }
     reset(){
         this.x = this.#startX;

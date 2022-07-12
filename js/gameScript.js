@@ -114,8 +114,8 @@ function fixed_FPS_loop() {
 }
 
 
-canvas.addEventListener("mouseup", tapOrClick, false);
-canvas.addEventListener("touchend", tapOrClick, false);
+canvas.addEventListener("mousedown", tapOrClick, false);
+canvas.addEventListener("touchstart", tapOrClick, false);
 document.addEventListener("keydown", keyDown);
 
 function tapOrClick(event) {
@@ -126,6 +126,7 @@ function tapOrClick(event) {
 }
 
 function keyDown(event) {
+    event.preventDefault();
     if (event.key === ' ') {
         flapOrGameReset()
     }
