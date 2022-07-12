@@ -22,8 +22,7 @@ nav {
     align-content: center;
 }
 .title{
-    font-weight: bold;
-    font-size: large;
+    font-size:  x-large;
     vertical-align: middle;
     margin-bottom: 500em;
 
@@ -31,7 +30,12 @@ nav {
 .logo{
     vertical-align: middle;
 }
+.best-score{
+    align-self: center;
+    text-align: right;
+    font-size: x-large;
 
+}
 
 #canv-container {
     margin: auto;

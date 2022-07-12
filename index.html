@@ -17,7 +17,10 @@
         <div class="container ">
             <div>
                 <img class="logo" src="sprite/bird.png" alt="bird logo" width="50" height="35" />
-               <span class="title">  Bouncy bird </span>
+                <span class="title">  Bouncy bird </span>
+            </div>
+            <div class="best-score">
+                Best Score: <span id="best-score-value">0</span>
             </div>
 
         </div>
@@ -26,30 +29,20 @@
 
 
     <div id="canv-container">
-        <canvas id="myCanvas" style="border: 1px solid #000000;" </canvas>
+        <canvas id="myCanvas" style="border: 1px solid #000000;"> </canvas>
     </div>
 
-    <script>
+    
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/gameObjects/gameObject.js"></script>
+    <script type="text/javascript" src="js/gameObjects/bird.js"></script>
+    <script type="text/javascript" src="js/gameObjects/pipe.js"></script>
+    <script type="text/javascript" src="js/gameObjects/coin.js"></script>
+    <script type="text/javascript" src="js/pipeManager.js"></script>
+    <script type="text/javascript" src="js/coinManager.js"></script>
+    <script type="text/javascript" src="js/score.js"></script>
+    <script type="text/javascript" src="js/gameScript.js"></script>
 
-        let canv_width = screen.width * 0.9;
-        if(canv_width>1000){
-            canv_width = 1000
-        }
-        const canv_height = screen.height * 0.7;
-
-        let c = document.getElementById("myCanvas");
-        var ctx = c.getContext("2d");
-        ctx.canvas.width = canv_width;
-        ctx.canvas.height = canv_height;
-    </script>
-
-    <script src="js/key.js"></script>
-    <script src="js/score.js"></script>
-    <script src="js/bird.js"></script>
-    <script src="js/coin.js"></script>
-    <script src="js/pipe.js"></script>
-    <script src="js/physics.js"></script>
-    <script src="js/gameScript.js"></script>
 
 </body>
 

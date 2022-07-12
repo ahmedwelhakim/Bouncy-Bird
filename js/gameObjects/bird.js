@@ -48,10 +48,15 @@ class Bird extends GameObject {
         }
         if (state.current == state.over) {
             if (this.bottom < canvas.height) {
-                this.#dx = 0;
+                this.#dx = SPEED_X ;
             }else{
                 this.#dx = 0;
             }
+        }else{
+            this.#dx = 0;
+        }
+        if(this.isCollideWithTop()){
+            this.#dy *= -0.7;
         }
         this.x += this.#dx;
         this.#dy += this.#ddy;
@@ -71,10 +76,17 @@ class Bird extends GameObject {
         }
     }
     flap() {
-        this.#dy = -900/FPS;
+        this.#dy = -800/FPS;
     }
     reset(){
         this.x = this.#startX;
         this.y = this.#startY;
     }
+    isCollideWithTop(){
+        return this.top < 0;
+    }
+    isCollideWithBottom(){
+        return this.bottom > canvas.height;
+    }
+  
 }
