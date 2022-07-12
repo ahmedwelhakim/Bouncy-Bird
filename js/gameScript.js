@@ -43,7 +43,7 @@ function gameReset() {
 }
 gameReset();
 fixed_FPS_loop();
-function newGameLoop(){
+function gameLoop(){
     // 1 - Draw
     //Draw background 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -95,7 +95,7 @@ function fixed_FPS_loop() {
 
     if (delta > interval) {
         // Here only execute every the specified fps number
-        newGameLoop();
+        gameLoop();
 
         // Just `then = now` is not enough.
         // Lets say we set fps at 10 which means
@@ -110,43 +110,6 @@ function fixed_FPS_loop() {
         // Hope that makes sense.
         then = now - (delta % interval);
     }
-
-}
-
-
-function gameLoop() {
-    //1- Draw
-    //Draw background 
-    ctx.clearRect(0, 0, c.width, c.height);
-    ctx.fillStyle = "skyblue";
-    ctx.fillRect(0, 0, c.width, c.height);
-    //Draw pipes and bird and score
-
-    //2- Update
-
-
-
-
-
-
-    if (state.current == state.play) {
-        for (let c = 0; c < coins.length; c++) {
-            if (iscoinCollision(bird, coins[c])) {
-                coins.splice(c, 1);
-                score.value++;
-            }
-        }
-    }
-
-    if (pipes.length > 0) {
-        if (isCollide(bird, pipes)) {
-            state.current = state.over;
-        }
-    }
-
-    //3- increment the frame counter
-    frame_count++;
-
 
 }
 
