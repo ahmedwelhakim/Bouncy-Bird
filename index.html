@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/gameStyle.css">
+    <title>Bouncy Bird </title>
+
+</head>
+
+<body>
+
+    <nav class="navbar   ">
+        <div class="container ">
+            <div>
+                <img class="logo" src="sprite/bird.png" alt="bird logo" width="50" height="35" />
+                <span class="title">  Bouncy bird </span>
+            </div>
+            <div class="best-score">
+                Best Score: <span id="best-score-value">0</span>
+            </div>
+
+        </div>
+    </nav>
+
+
+
+    <div id="canv-container">
+        <canvas id="myCanvas" style="border: 1px solid #000000;"> </canvas>
+    </div>
+
+    
+    <script type="text/javascript" src="js/constants.js"></script>
+    <script type="text/javascript" src="js/gameObjects/gameObject.js"></script>
+    <script type="text/javascript" src="js/gameObjects/bird.js"></script>
+    <script type="text/javascript" src="js/gameObjects/pipe.js"></script>
+    <script type="text/javascript" src="js/gameObjects/coin.js"></script>
+    <script type="text/javascript" src="js/pipeManager.js"></script>
+    <script type="text/javascript" src="js/coinManager.js"></script>
+    <script type="text/javascript" src="js/score.js"></script>
+    <script type="text/javascript" src="js/gameScript.js"></script>
+
+
+</body>
+
+</html>

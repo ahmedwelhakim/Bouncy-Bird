@@ -1,5 +1,5 @@
 body {
-    min-width: 1000px;
+    /*min-width: 1000px;*/
     background: radial-gradient(ellipse, #0793f1, transparent), radial-gradient(ellipse, #e43d1f, transparent);
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -7,25 +7,44 @@ body {
 
 nav {
     background-color: rgb(27, 26, 26);
-    border-radius: 5em;
-    margin: auto;
+    border-radius: 1em;
     height: 3em;
+    padding: 0.5em;
 }
 
 .container {
     color: beige;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    height: 3em;
     width: 80%;
     margin: auto;
+    align-content: center;
+}
+.title{
+    font-size:  x-large;
+    vertical-align: middle;
+    margin-bottom: 500em;
+
+}
+.logo{
+    vertical-align: middle;
+}
+.best-score{
+    align-self: center;
+    text-align: right;
+    font-size: x-large;
+
 }
 
 #canv-container {
     margin: auto;
+    margin-top: 20px;
     width: fit-content;
 }
 
 canvas {
-    border-radius: 3em;
+
+    border-radius: 2em;
     margin: auto;
 }
