@@ -120,13 +120,13 @@ document.addEventListener("keydown", keyDown);
 
 function tapOrClick(event) {
     //handle tap or click.
-    //event.preventDefault();
+    event.preventDefault();
     flapOrGameReset();
     return false;
 }
 
 function keyDown(event) {
-    //event.preventDefault();
+    event.preventDefault();
     if (event.key === ' ') {
         flapOrGameReset()
     }

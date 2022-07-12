@@ -1,5 +1,5 @@
 
-const FPS = 60;
+const FPS = 45;
 
 const GRAVITY = 2500.0 / (FPS*FPS); // (px/frame^2)
 
