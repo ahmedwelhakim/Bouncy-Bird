@@ -20,7 +20,6 @@ class CoinManager{
 				for(let x = startX; x < endX; x += coins_distance){
 					let y = gap.bottom - (gap.height*0.2) -  Coin.height - Math.sin( Math.PI * ((x - startX) / coin_cycle_distance) ) * gap.height*0.4 ;
 					this.#coins.push(new Coin(x,y));
-					console.log(this.#coins.length);
 				}
 			});
 			
@@ -39,7 +38,6 @@ class CoinManager{
 					for(let x = startX; x < endX; x += coins_distance){
 						let y = gap.bottom - (gap.height*0.2) -  Coin.height - Math.sin( Math.PI * ((x - startX) / coin_cycle_distance) ) * gap.height*0.4 ;
 						this.#coins.push(new Coin(x,y));
-						console.log(this.#coins.length);
 					}
 			
 				if(this.#coins[0].right < 0){
